@@ -1,39 +1,43 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: 'https://blogpessoal-83dh.onrender.com/'
+    baseURL: 'https://blogpessoal-2glj.onrender.com'
 })
 
-// Função Cadastrar Usuario
-export const cadastrarUsuario = async  (url: string, dados: Object, setDados: Function) =>{
+// Função  cadastrar Usuario
+
+export const cadastrarUsuario = async (url: string, dados: Object, setDados: Function) => {
     const resposta = await api.post(url, dados)
-    setDados(resposta.data) 
+    setDados(resposta.data)
 }
 
-export const login = async  (url: string, dados: Object, setDados: Function) =>{
+// Função  autenticar Usuario
+
+export const login = async (url: string, dados: Object, setDados: Function) => {
     const resposta = await api.post(url, dados)
-    setDados(resposta.data) 
+    setDados(resposta.data)
 }
 
-// Função de Consulta com Token
+// Função consultar com token
 export const buscar = async (url: string, setDados: Function, header: Object) => {
     const resposta = await api.get(url, header)
     setDados(resposta.data)
 }
 
-// Função Cadastrar com token
+// Função cadastrar com token
 export const cadastrar = async (url: string, dados: Object, setDados: Function, header: Object) => {
     const resposta = await api.post(url, dados, header)
     setDados(resposta.data)
 }
 
-// Função Atualizar com token
+// Função atualizar com token
 export const atualizar = async (url: string, dados: Object, setDados: Function, header: Object) => {
     const resposta = await api.put(url, dados, header)
     setDados(resposta.data)
 }
 
 // Função Deletar com token
+
 export const deletar = async (url: string, header: Object) => {
     await api.delete(url, header)
 }
