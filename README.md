@@ -1,32 +1,72 @@
-# React + TypeScript + Vite
+# Blog Pessoal — Frontend (React + TypeScript)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Frontend do projeto **Blog Pessoal**, consumindo a [API REST em Java/Spring Boot](https://github.com/guitxc/blog_pessoal) que gerencia usuários, temas e postagens. Este repositório contém a interface web construída em React com TypeScript.
 
-Currently, two official plugins are available:
+🔗 **Aplicação em produção:** https://blogpessoal-react-zeta-seven.vercel.app
+🔗 **API (backend):** https://blogpessoal-83dh.onrender.com/swagger-ui/index.html
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Sobre o projeto
 
-## React Compiler
+O Blog Pessoal é uma aplicação fullstack de gerenciamento de conteúdo. Este repositório é a camada de frontend, responsável por consumir a API REST do backend (Spring Boot) e oferecer uma interface para o usuário se autenticar e gerenciar seus posts e temas.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Funcionalidades
 
-## Expanding the Oxlint configuration
+- **Autenticação:** tela de login e cadastro de usuário, com token JWT retornado pela API e utilizado nas requisições autenticadas
+- **CRUD de Postagens:** criar, listar, editar e excluir postagens
+- **Gerenciamento de Temas:** criar, listar, editar e excluir temas usados para categorizar as postagens
+- **Integração completa com o backend:** todas as operações são refletidas na API Java/Spring Boot em tempo real
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Tecnologias utilizadas
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/) — build tool e dev server
+- [Tailwind CSS](https://tailwindcss.com/) — estilização
+- [Axios](https://axios-http.com/) — requisições HTTP para a API
+- [React Router](https://reactrouter.com/) — navegação entre páginas
+
+## Como rodar o projeto localmente
+
+### Pré-requisitos
+
+- [Node.js](https://nodejs.org/) (versão 18 ou superior)
+- npm ou yarn
+- A [API do Blog Pessoal](https://github.com/guitxc/blog_pessoal) rodando localmente ou acesso à instância em produção
+
+### Passo a passo
+
+```bash
+# Clone este repositório
+git clone https://github.com/guitxc/blogpessoal_react.git
+
+# Acesse a pasta do projeto
+cd blogpessoal_react
+
+# Instale as dependências
+npm install
+
+# Configure a variável de ambiente com a URL da API
+# Crie um arquivo .env na raiz do projeto com:
+# VITE_API_URL=http://localhost:8080
+
+# Rode o projeto em modo de desenvolvimento
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+O projeto estará disponível em `http://localhost:5173` (porta padrão do Vite).
+
+### Build para produção
+
+```bash
+npm run build
+```
+
+## Projeto relacionado (Backend)
+
+Este frontend consome a API REST desenvolvida em Java com Spring Boot. Confira o repositório do backend aqui:
+👉 [github.com/guitxc/blog_pessoal](https://github.com/guitxc/blog_pessoal)
+
+## Autor
+
+**Guilherme Sandoli**
+[LinkedIn](https://www.linkedin.com/in/guisandoli/) | [GitHub](https://github.com/guitxc)
