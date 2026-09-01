@@ -4,6 +4,7 @@ import type Usuario from "../../models/Usuario";
 import { cadastrarUsuario } from "../../services/Service";
 import axios from "axios";
 import { ClipLoader } from "react-spinners";
+import { ToastAlerta } from "../../utils/ToastAlerta";
  
 function Cadastro() {
  
@@ -52,7 +53,7 @@ function Cadastro() {
  
     // Validação da senha digitada
     if (confirmarSenha !== usuario.senha || usuario.senha.length < 8) {
-      alert("Senhas não conferem e/ou não possuem pelo menos 8 caracteres");
+      ToastAlerta("Senhas não conferem e/ou não possuem pelo menos 8 caracteres", "erro");
       setUsuario({ ...usuario, senha: '' });
       setConfirmarSenha('');
       return;
@@ -66,9 +67,9 @@ function Cadastro() {
  
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
-        alert(`Erro ao cadastrar o usuário: ${error.response.status}`);
+        ToastAlerta(`Erro ao cadastrar o usuário: ${error.response.status}`, "erro");
       } else {
-        alert("Erro ao cadastrar o usuário! Verifique a conexão com a API!");
+        ToastAlerta("Erro ao cadastrar o usuário! Verifique a conexão com a API!", "erro");
       }
  
     } finally {
