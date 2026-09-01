@@ -67,6 +67,7 @@ function Cadastro() {
  
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
+        console.log("Resposta da API: ", error.response.data)
         ToastAlerta(`Erro ao cadastrar o usuário: ${error.response.status}`, "erro");
       } else {
         ToastAlerta("Erro ao cadastrar o usuário! Verifique a conexão com a API!", "erro");
